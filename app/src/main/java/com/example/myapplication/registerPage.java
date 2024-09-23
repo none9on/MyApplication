@@ -40,6 +40,7 @@ public class registerPage extends AppCompatActivity {
     ProgressBar progressBarRegister;
     FirebaseFirestore fstore;
     String userID;
+    FirebaseUser fuser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,7 +92,7 @@ public class registerPage extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
 //                        verify email
-                        FirebaseUser fuser = fAuth.getCurrentUser();
+                        fuser = fAuth.getCurrentUser();
                         fuser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {

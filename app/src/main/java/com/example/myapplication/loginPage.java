@@ -104,6 +104,7 @@ public class loginPage extends AppCompatActivity {
                 passwordResetDialog.setTitle("reset password?");
                 passwordResetDialog.setMessage("enter your email to receive reset link");
                 passwordResetDialog.setView(resetEmail);
+
                 passwordResetDialog.setPositiveButton("yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
