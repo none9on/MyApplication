@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,12 +19,12 @@ import com.google.firebase.auth.FirebaseAuth;
 public class ProfilePage extends AppCompatActivity {
     private Button movethree;
     private Button movefour;
+    TextView infButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_page);
         ImageButton movethree = (ImageButton) findViewById(R.id.search_page_notbold);
-
         movethree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +46,14 @@ public class ProfilePage extends AppCompatActivity {
                 finish();
             }
         });
-
+    infButton = findViewById(R.id.textViewProfileInformation);
+        infButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), profileInformation.class));
+                finish();
+            }
+        });
     }
     public void logout(View view)
     {
@@ -53,4 +61,5 @@ public class ProfilePage extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), loginPage.class));
         finish();
     }
+
 }

@@ -3,6 +3,7 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,9 +19,15 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class registerPage extends AppCompatActivity {
 //    эдит текст для записи, кнопка, текст вью это для уже зареганы
@@ -29,6 +36,8 @@ public class registerPage extends AppCompatActivity {
     TextView mLoginBtn;
     FirebaseAuth fAuth;
     ProgressBar progressBarRegister;
+    FirebaseFirestore fstore;
+    String userID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,9 +47,12 @@ public class registerPage extends AppCompatActivity {
        mPassword = findViewById(R.id.register_password);
        mRegisterBtn = findViewById(R.id.register_button);
        mLoginBtn = findViewById(R.id.textViewLogin);
+       mPhone = findViewById(R.id.register_phone);
 //getting the current instance of data base
        fAuth = FirebaseAuth.getInstance();
        progressBarRegister = findViewById(R.id.progressBarRegister);
+       fstore = FirebaseFirestore.getInstance();
+
 
 //       is user logged in or not need to check this first
         if(fAuth.getCurrentUser() != null){
@@ -54,6 +66,9 @@ public class registerPage extends AppCompatActivity {
             public void onClick(View v) {
                 String email = mEmail.getText().toString().trim();
                 String password = mPassword.getText().toString().trim();
+
+                String name = mName.getText().toString();
+                String phone = mPhone.getText().toString();
 
                 if(TextUtils.isEmpty(email)){
                     mEmail.setError("email is required!");
@@ -74,6 +89,20 @@ public class registerPage extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(registerPage.this, "user created!", Toast.LENGTH_SHORT).show();
+
+                            userID = fAuth.getCurrentUser().getUid();
+                            DocumentReference documentReference = fstore.collection("users").document(userID);
+//                            понятия не имею что делает эта карта нужно почитать
+                            Map<String, Object> user = new HashMap<>();
+                            user.put("name", name);
+                            user.put("email", email);
+                            user.put("phone", phone);
+                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Log.d("TAG", "profile is created for " + userID);
+                                }
+                            });
 //                            переходим после регистрации успешной в мейн активити
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
@@ -92,6 +121,7 @@ public class registerPage extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             startActivity(new Intent(getApplicationContext(), loginPage.class));
+            finish();
         }
     });
     }
