@@ -1,24 +1,98 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class registerPage extends AppCompatActivity {
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
+public class registerPage extends AppCompatActivity {
+//    эдит текст для записи, кнопка, текст вью это для уже зареганы
+    EditText mName, mEmail, mPassword, mPhone;
+    Button mRegisterBtn;
+    TextView mLoginBtn;
+    FirebaseAuth fAuth;
+    ProgressBar progressBarRegister;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register_page);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+       mName = findViewById(R.id.register_name);
+       mEmail = findViewById(R.id.register_email);
+       mPassword = findViewById(R.id.register_password);
+       mRegisterBtn = findViewById(R.id.register_button);
+       mLoginBtn = findViewById(R.id.textViewLogin);
+//getting the current instance of data base
+       fAuth = FirebaseAuth.getInstance();
+       progressBarRegister = findViewById(R.id.progressBarRegister);
+
+//       is user logged in or not need to check this first
+        if(fAuth.getCurrentUser() != null){
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            finish();
+        }
+
+//       after the user clicked on register button нужно проверить, что все данные введены правильно
+        mRegisterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email = mEmail.getText().toString().trim();
+                String password = mPassword.getText().toString().trim();
+
+                if(TextUtils.isEmpty(email)){
+                    mEmail.setError("email is required!");
+                    return;
+                }
+                if(TextUtils.isEmpty(password)){
+                    mPassword.setError("password is required!");
+                    return;
+                }
+                if(password.length() < 6){
+                    mPassword.setError("password is too short!");
+                    return;
+                }
+                progressBarRegister.setVisibility(View.VISIBLE);
+//                register the user
+                fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(registerPage.this, "user created!", Toast.LENGTH_SHORT).show();
+//                            переходим после регистрации успешной в мейн активити
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+
+                        }
+                        else
+                        {
+                            Toast.makeText(registerPage.this, "error!" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            progressBarRegister.setVisibility(View.GONE);
+
+                        }
+                    }
+                });
+            }
         });
+    mLoginBtn.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            startActivity(new Intent(getApplicationContext(), loginPage.class));
+        }
+    });
     }
 }

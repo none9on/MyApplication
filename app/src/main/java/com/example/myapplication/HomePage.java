@@ -19,7 +19,7 @@ public class HomePage extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(HomePage.this, MainActivity.class);
+                Intent intent = new Intent(HomePage.this, registerPage.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);

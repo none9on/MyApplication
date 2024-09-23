@@ -6,7 +6,7 @@
     </style>
 
     <style name="Theme.MyApplication" parent="Base.Theme.MyApplication" />
-    <style name="Theme.ProjectB.NoActionBarAndStatusBar">
+    <style name="Theme.MyApplication.NoActionBarAndStatusBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <!-- честно хз как сделать так чтобы цвет подстраивался под status bar пока только если прозрачно -->
