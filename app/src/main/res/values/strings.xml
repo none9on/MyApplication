@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="welcome">Добро Пожаловать!</string>
+    <string name="register">Регистрация:</string>
+    <string name="name">Имя</string>
+    <string name="phone">Телефон</string>
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+    <string name="registerbutton">Зарегистироваться</string>
+    <string name="registerlogin">Уже есть аккаунт? Войти здесь! </string>
+    <string name="login">Войти:</string>
+    <string name="loginbutton">Войти</string>
+    <string name="loginregister">Нет аккаунта? Зарегистрироваться здесь!</string>
+    
+    
+    
+    
+    
+    
 </resources>

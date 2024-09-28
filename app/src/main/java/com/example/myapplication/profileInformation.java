@@ -228,4 +228,10 @@ public class profileInformation extends AppCompatActivity {
             }
         });
     }
+    public void logout(View view)
+    {
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(getApplicationContext(), loginPage.class));
+        finish();
+    }
 }
