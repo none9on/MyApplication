@@ -15,7 +15,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.adapter.CategoryAdapter;
+import com.example.myapplication.adapter.EventsAdapter;
 import com.example.myapplication.model.Category;
+import com.example.myapplication.model.Events;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +25,9 @@ import java.util.List;
 public class SearchPage extends AppCompatActivity {
     private Button movefive;
     private Button movetwosix;
+    EventsAdapter eventsAdapter;
 
-    RecyclerView categoryRecycler;
+    RecyclerView categoryRecycler, eventsRecycler;
     CategoryAdapter categoryAdapter;
 
     @Override
@@ -65,6 +68,23 @@ public class SearchPage extends AppCompatActivity {
 
         setCategoryRecycler(categoryList);
 
+        List<Events> eventsList = new ArrayList<>();
+        eventsList.add(new Events(1, "30 ноября", "test", "TEST", "#fcba03"));
+        eventsList.add(new Events(2, "5 декабря", "testtwo", "TEST TWO", "#f194f2"));
+
+        setEventRecycler(eventsList);
+
+    }
+
+    private void setEventRecycler(List<Events> eventsList) {
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+//        находим его по айди
+        eventsRecycler = findViewById(R.id.eventsRecycler);
+//        передаем настройки которые прописали чуть чуть выше
+        eventsRecycler.setLayoutManager(layoutManager);
+//        для вывода всех значений
+        eventsAdapter = new EventsAdapter(this, eventsList);
+        eventsRecycler.setAdapter(eventsAdapter);
     }
 
     private void setCategoryRecycler(List<Category> categoryList) {

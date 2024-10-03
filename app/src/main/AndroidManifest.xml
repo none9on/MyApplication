@@ -15,6 +15,12 @@
         android:theme="@style/Base.Theme.MyApplication"
         tools:targetApi="34">
         <activity
+            android:name=".BuyPage"
+            android:exported="false" />
+        <activity
+            android:name=".EventPage"
+            android:exported="false" />
+        <activity
             android:name=".profileInformation"
             android:exported="false" />
         <activity
