@@ -11,10 +11,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.myapplication.adapter.CategoryAdapter;
+import com.example.myapplication.model.Category;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SearchPage extends AppCompatActivity {
     private Button movefive;
     private Button movetwosix;
+
+    RecyclerView categoryRecycler;
+    CategoryAdapter categoryAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,5 +53,30 @@ public class SearchPage extends AppCompatActivity {
                 finish();
             }
         });
+
+        List<Category> categoryList = new ArrayList<>();
+        categoryList.add(new Category(1, "Кино"));
+        categoryList.add(new Category(2, "Музеи"));
+        categoryList.add(new Category(3, "Театры"));
+        categoryList.add(new Category(4, "Концерты"));
+        categoryList.add(new Category(5, "Лекции"));
+        categoryList.add(new Category(6, "Развлечения"));
+        categoryList.add(new Category(7, "Прочее"));
+
+        setCategoryRecycler(categoryList);
+
+    }
+
+    private void setCategoryRecycler(List<Category> categoryList) {
+//        указываем как будет выглядеть этот ресайклер
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
+//        находим его по айди
+        categoryRecycler = findViewById(R.id.categoryRecycler);
+//        передаем настройки которые прописали чуть чуть выше
+        categoryRecycler.setLayoutManager(layoutManager);
+//        для вывода всех значений
+        categoryAdapter = new CategoryAdapter(this, categoryList);
+        categoryRecycler.setAdapter(categoryAdapter);
+
     }
 }
