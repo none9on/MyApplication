@@ -23,12 +23,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchPage extends AppCompatActivity {
-    private Button movefive;
-    private Button movetwosix;
-    EventsAdapter eventsAdapter;
 
     RecyclerView categoryRecycler, eventsRecycler;
     CategoryAdapter categoryAdapter;
+    static EventsAdapter eventsAdapter;
+    static List<Events> eventsList = new ArrayList<>();
+    static List<Events> fullEventsList = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,14 +66,24 @@ public class SearchPage extends AppCompatActivity {
         categoryList.add(new Category(5, "Лекции"));
         categoryList.add(new Category(6, "Развлечения"));
         categoryList.add(new Category(7, "Прочее"));
-
         setCategoryRecycler(categoryList);
 
-        List<Events> eventsList = new ArrayList<>();
-        eventsList.add(new Events(1, "30 ноября", "test", "TEST", "#fcba03"));
-        eventsList.add(new Events(2, "5 декабря", "testtwo", "TEST TWO", "#f194f2"));
 
+        eventsList.add(new Events(1, "30 ноября", "test", "TEST", "#fcba03", "testestest", "paricipant n 1", 1));
+        eventsList.add(new Events(2, "5 декабря", "testtwo", "TEST TWO", "#f194f2", "test2test2test2", "participant n 2", 2));
+        fullEventsList.addAll(eventsList);
         setEventRecycler(eventsList);
+
+        ImageButton allEvents = (ImageButton) findViewById(R.id.imageViewButton);
+        allEvents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                eventsList.clear();
+                eventsList.addAll(fullEventsList);
+                eventsAdapter.notifyDataSetChanged();
+
+            }
+        });
 
     }
 
@@ -98,5 +109,19 @@ public class SearchPage extends AppCompatActivity {
         categoryAdapter = new CategoryAdapter(this, categoryList);
         categoryRecycler.setAdapter(categoryAdapter);
 
+    }
+
+    public static void showEventsByCategory(int category){
+
+        eventsList.clear();
+        eventsList.addAll(fullEventsList);
+        List<Events> filterEvents = new ArrayList<>();
+        for(Events e: eventsList){
+            if(e.getCategory() == category){
+                filterEvents.add(e);}
+        }
+        eventsList.clear();
+        eventsList.addAll(filterEvents);
+        eventsAdapter.notifyDataSetChanged();
     }
 }

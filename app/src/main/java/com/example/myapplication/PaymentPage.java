@@ -11,19 +11,17 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class BuyPage extends AppCompatActivity {
+public class PaymentPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_buy_page);
-
-
-        Button buyButton = findViewById(R.id.buyButton);
-        buyButton.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_payment_page);
+        Button payed = findViewById(R.id.buttonPayed);
+        payed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(BuyPage.this, PaymentPage.class);
+                Intent intent = new Intent(PaymentPage.this, ConfirmedPage.class);
                 startActivity(intent);
                 overridePendingTransition(0, 0);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);

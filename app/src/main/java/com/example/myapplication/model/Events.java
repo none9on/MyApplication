@@ -2,15 +2,42 @@ package com.example.myapplication.model;
 
 public class Events {
 
-    int id;
-    String date, img, name, color;
+    int id, category;
+    String date, img, name, color, desc, part;
 
-    public Events(int id, String date, String img, String name, String color) {
+    public Events(int id, String date, String img, String name, String color, String desc, String part, int category) {
         this.id = id;
         this.date = date;
         this.img = img;
         this.name = name;
         this.color = color;
+        this.desc = desc;
+        this.part = part;
+        this.category = category;
+    }
+
+    public int getCategory() {
+        return category;
+    }
+
+    public void setCategory(int category) {
+        this.category = category;
+    }
+
+    public String getPart() {
+        return part;
+    }
+
+    public void setPart(String part) {
+        this.part = part;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public int getId() {

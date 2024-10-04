@@ -6,7 +6,7 @@
         <item name="windowNoTitle">true</item>
 <!--        <item name="android:windowFullscreen">true</item>-->
         <item name="android:windowTranslucentStatus">true</item>
-
+<item name="android:windowActivityTransitions">true</item>
     </style>
 
 <!--    <style name="Theme.MyApplication" parent="Base.Theme.MyApplication" />-->

@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class ProfilePage extends AppCompatActivity {
     private Button movethree;
     private Button movefour;
-    TextView infButton;
+    TextView infButton, orderButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +51,15 @@ public class ProfilePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), profileInformation.class));
+                finish();
+            }
+        });
+
+        orderButton = findViewById(R.id.orderHistory);
+        orderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), OrderHistoryPage.class));
                 finish();
             }
         });

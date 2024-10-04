@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.SearchPage;
 import com.example.myapplication.model.Category;
 
 import java.util.List;
@@ -38,6 +39,13 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
 //        что будем конкретно в каждое поле подставлять
         holder.categoryTitle.setText(categories.get(position).getTitle());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SearchPage.showEventsByCategory(categories.get(holder.getAdapterPosition()).getId());
+            }
+        });
     }
 
     @Override

@@ -5,16 +5,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class EventPage extends AppCompatActivity {
-    Button movebuy;
-    Button moveback;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,5 +43,22 @@ public class EventPage extends AppCompatActivity {
                 finish();
             }
         });
+        ConstraintLayout eventBg = findViewById(R.id.eventPageBg);
+        ImageView eventImage = findViewById(R.id.eventPageImage);
+        TextView eventTitle = findViewById(R.id.EventPageName);
+        TextView eventDate = findViewById(R.id.EventPageDate);
+        TextView eventDesc = findViewById(R.id.eventPageDesc);
+        TextView eventPart = findViewById(R.id.eventPagePart);
+
+        eventBg.setBackgroundColor(getIntent().getIntExtra("eventBg", 0));
+        eventImage.setImageResource(getIntent().getIntExtra("eventImg", 0));
+        eventTitle.setText(getIntent().getStringExtra("eventTitle"));
+        eventDate.setText(getIntent().getStringExtra("eventDate"));
+        eventDesc.setText(getIntent().getStringExtra("eventDesc"));
+        eventPart.setText(getIntent().getStringExtra("eventPart"));
+
+
+
+
     }
 }

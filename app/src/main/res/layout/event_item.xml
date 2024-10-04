@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginEnd="15dp">
+    android:layout_marginEnd="15dp"
+    android:transitionName="eventImage">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/eventBg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:cardCornerRadius="15dp"
+        app:contentPaddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:contentPaddingBottom="10dp"
-        app:cardCornerRadius="15dp">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,6 +27,7 @@
                 android:id="@+id/eventImage"
                 android:layout_width="320dp"
                 android:layout_height="209dp"
+                android:transitionName="eventImage"
                 app:srcCompat="@drawable/eventphoto" />
 
             <TextView
@@ -43,6 +45,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <TextView
                     android:id="@+id/eventDate"
                     android:layout_width="287dp"
