@@ -59,12 +59,13 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventsView
                         (Activity) context,
                         new Pair<View, String>(holder.eventImg, "eventImage"));
 
-                intent.putExtra("eventBg",Color.parseColor(events.get(holder.getAdapterPosition() ).getColor()));
+                intent.putExtra("eventBg",Color.parseColor(events.get(holder.getAdapterPosition()).getColor()));
                 intent.putExtra("eventImg",imageId);
                 intent.putExtra("eventTitle",events.get(holder.getAdapterPosition()).getName());
                 intent.putExtra("eventDate",events.get(holder.getAdapterPosition()).getDate());
                 intent.putExtra("eventDesc",events.get(holder.getAdapterPosition()).getDesc());
                 intent.putExtra("eventPart",events.get(holder.getAdapterPosition()).getPart());
+                intent.putExtra("eventId", events.get(holder.getAdapterPosition()).getId());
 
 
                 context.startActivity(intent, options.toBundle());

@@ -28,5 +28,7 @@ public class PaymentPage extends AppCompatActivity {
                 finish();
             }
         });
+
+
     }
 }

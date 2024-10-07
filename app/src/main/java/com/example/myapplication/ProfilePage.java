@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.myapplication.model.Order;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfilePage extends AppCompatActivity {
@@ -63,6 +65,10 @@ public class ProfilePage extends AppCompatActivity {
                 finish();
             }
         });
+
+
+
+
     }
 //    public void logout(View view)
 //    {
@@ -70,5 +76,4 @@ public class ProfilePage extends AppCompatActivity {
 //        startActivity(new Intent(getApplicationContext(), loginPage.class));
 //        finish();
 //    }
-
 }

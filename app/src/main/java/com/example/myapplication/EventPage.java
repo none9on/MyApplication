@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,23 +16,25 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.myapplication.model.Order;
+
 public class EventPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_page);
-        Button movebuy = findViewById(R.id.ticketButton);
-        movebuy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(EventPage.this, BuyPage.class);
-                startActivity(intent);
-                overridePendingTransition(0, 0);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                finish();
-            }
-        });
+//        Button movebuy = findViewById(R.id.ticketButton);
+//        movebuy.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(EventPage.this, BuyPage.class);
+//                startActivity(intent);
+//                overridePendingTransition(0, 0);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+//                finish();
+//            }
+//        });
         ImageButton moveback =(ImageButton) findViewById(R.id.backButton);
         moveback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,5 +63,24 @@ public class EventPage extends AppCompatActivity {
 
 
 
+    }
+
+
+    public void addToCart(View view){
+        int event_id = getIntent().getIntExtra("eventId", 0);
+        Order.events_id.add(event_id);
+      Toast.makeText(this, "добавлено", Toast.LENGTH_SHORT).show();
+
+        Button movebuy = findViewById(R.id.ticketButton);
+        movebuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EventPage.this, BuyPage.class);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                finish();
+            }
+        });
     }
 }
