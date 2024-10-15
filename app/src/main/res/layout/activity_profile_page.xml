@@ -8,11 +8,27 @@
     tools:context=".ProfilePage"
     android:background="@color/white">
 
+    <TextView
+        android:id="@+id/orderHistory2"
+        android:layout_width="239dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/anek_latin_semibold"
+        android:text="@string/faq"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/orderHistory" />
+
     <ImageButton
         android:id="@+id/search_page_bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#FFFFFF"
+        android:contentDescription="@string/email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/searchbold" />
@@ -22,6 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#FFFFFF"
+        android:contentDescription="@string/email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/homenotbold" />
@@ -31,6 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#FFFFFF"
+        android:contentDescription="@string/email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/profilebold" />
@@ -40,6 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#FFFFFF"
+        android:contentDescription="@string/email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,30 +80,31 @@
         android:id="@+id/textView5"
         android:layout_width="304dp"
         android:layout_height="51dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/anek_latin_semibold"
-        android:text="Мой профиль"
+        android:text="@string/myprofile"
         android:textColor="@color/black"
         android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/search_page_notbold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.149"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textViewProfileInformation"
         android:layout_width="201dp"
         android:layout_height="39dp"
         android:layout_marginStart="15dp"
-        android:layout_marginBottom="456dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/anek_latin_semibold"
-        android:text="Обзор профиля"
+        android:text="@string/profileview"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/search_page_bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintHorizontal_bias="0.114"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -93,16 +113,28 @@
         android:layout_width="191dp"
         android:layout_height="36dp"
         android:layout_marginStart="15dp"
-        android:layout_marginBottom="420dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/anek_latin_semibold"
-        android:text="История заказов"
+        android:text="@string/ticketview"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/search_page_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewProfileInformation" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/ticketview"
+        app:layout_constraintBottom_toTopOf="@+id/search_page_notbold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewProfileInformation"
-        app:layout_constraintVertical_bias="0.533" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/headereverywhere" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

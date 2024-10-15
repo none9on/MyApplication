@@ -3,17 +3,70 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
     android:layout_marginEnd="15dp"
+    android:layout_height="wrap_content"
     android:transitionName="eventImage">
 
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/eventBg"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:cardCornerRadius="15dp"-->
+<!--        app:cardUseCompatPadding="true"-->
+<!--        app:contentPaddingBottom="0dp"-->
+<!--        android:paddingTop="0dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/eventImage"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:transitionName="eventImage"-->
+<!--                app:srcCompat="@drawable/eventphoto" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/eventName"-->
+<!--                android:layout_width="296dp"-->
+<!--                android:layout_height="wrap_content"-->
+
+<!--                android:layout_weight="1"-->
+<!--                android:fontFamily="@font/anek_latin_semibold"-->
+<!--                android:text="Название"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="25sp" />-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/eventDate"-->
+<!--                    android:layout_width="287dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_margin="10dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="Дата"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="25sp" />-->
+<!--            </LinearLayout>-->
+
+<!--        </LinearLayout>-->
+<!--    </androidx.cardview.widget.CardView>-->
     <androidx.cardview.widget.CardView
         android:id="@+id/eventBg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="15dp"
-        app:contentPaddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:cardCornerRadius="20dp"
+        app:contentPaddingBottom="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -22,42 +75,33 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
             <ImageView
                 android:id="@+id/eventImage"
-                android:layout_width="320dp"
-                android:layout_height="209dp"
-                android:transitionName="eventImage"
-                app:srcCompat="@drawable/eventphoto" />
-
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/eventphoto"/>
             <TextView
                 android:id="@+id/eventName"
-                android:layout_width="296dp"
+                android:layout_width="match_parent"
+                android:layout_margin="5dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/anek_latin_semibold"
-
-                android:text="Название"
-                android:textColor="@color/black"
-                android:textSize="25sp" />
-
+                android:text="TextView" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
                 <TextView
                     android:id="@+id/eventDate"
-                    android:layout_width="287dp"
+                    android:layout_width="match_parent"
+                    android:layout_margin="5dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:text="Дата"
-                    android:textColor="@color/black"
-                    android:textSize="25sp" />
+                    android:text="TextView" />
+
             </LinearLayout>
+
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,6 +11,38 @@
     <string name="login">Войти:</string>
     <string name="loginbutton">Войти</string>
     <string name="loginregister">Нет аккаунта? Зарегистрироваться здесь!</string>
+    <string name="logout">Выйти</string>
+    <string name="changeProfilePhoto">Изменить фото профиля</string>
+    <string name="changepassword">Изменить пароль</string>
+    <string name="confirmProfile">Подтвердить</string>
+    <string name="accountNotConfirmed">Аккаунт не подтвержден!</string>
+    <string name="faq">Обратная связь</string>
+    <string name="myprofile">Мой профиль</string>
+    <string name="profileview">Обзор профиля</string>
+    <string name="ticketview">Обзор билетов</string>
+    <string name="kino">kino</string>
+    <string name="continueBuy">Продолжить</string>
+    <string name="orderDet">Детали заказа:</string>
+    <string name="eventName">Название:</string>
+    <string name="dateBuy">Дата:</string>
+    <string name="surname">Фамилия</string>
+    <string name="oplata">К оплате:</string>
+    <string name="price">Цена</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </resources>
