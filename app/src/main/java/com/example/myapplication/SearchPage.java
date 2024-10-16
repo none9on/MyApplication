@@ -69,8 +69,22 @@ public class SearchPage extends AppCompatActivity {
         setCategoryRecycler(categoryList);
 
 
-        eventsList.add(new Events(1, "30 ноября", "test", "TEST", "#fcba03", "testestest", "paricipant n 1", 1));
-        eventsList.add(new Events(2, "5 декабря", "testtwo", "TEST TWO", "#f194f2", "test2test2test2", "participant n 2", 2));
+        eventsList.add(new Events(1, "30 ноября", "birdlady", "Леди Бёрд", "#c7656d", "testestest", "paricipant n 1", 1));
+        eventsList.add(new Events(2, "5 декабря", "prideand", "Гордость и предубеждение", "#4C727F", "test2test2test2", "participant n 2", 1));
+        eventsList.add(new Events(3, "10 декабря", "smena", "Смена: выставка такая-то", "#A9835F", "test2test2test2", "participant n 2", 2));
+        eventsList.add(new Events(4, "5 января", "gsi", "ГСИ РТ", "#D5DCD5", "test2test2test2", "participant n 2", 2));
+        eventsList.add(new Events(5, "8 января", "ugol", "Угол", "#9B9A9A", "test2test2test2", "participant n 2", 3));
+        eventsList.add(new Events(6, "20 января", "opera", "Театр оперы и балета", "#74251D", "test2test2test2", "participant n 2", 3));
+        eventsList.add(new Events(7, "6 января", "hanz", "Hanz Zimmer", "#D50551", "test2test2test2", "participant n 2", 4));
+        eventsList.add(new Events(8, "12 января", "svechi", "Саунтрэки Эйнауди", "#DC6202", "test2test2test2", "participant n 2", 4));
+        eventsList.add(new Events(9, "29 января", "smenalec", "Смена: книги меняют города", "#C39E8B", "test2test2test2", "participant n 2", 5));
+        eventsList.add(new Events(10, "2 февраля", "bibl", "Национальная библиотека лекция", "#AB746C", "test2test2test2", "participant n 2", 5));
+        eventsList.add(new Events(11, "10 февраля", "surf", "Surf Coffee капинг", "#76B9B3", "test2test2test2", "participant n 2", 6));
+        eventsList.add(new Events(12, "15 февраля", "flower", "Флористика", "#905E74", "test2test2test2", "participant n 2", 6));
+        eventsList.add(new Events(10, "17 февраля", "club", "Книжный клуб", "#C59980", "test2test2test2", "participant n 2", 7));
+        eventsList.add(new Events(13, "22 февраля", "speaking", "English Speaking club", "#95AF70", "test2test2test2", "participant n 2", 7));
+
+
         fullEventsList.addAll(eventsList);
         setEventRecycler(eventsList);
 
